@@ -10,3 +10,9 @@
 [submodule "EC-4.20.16"]
 	path = EC-4.20.16
 	url = git@github.com:gregcusack/EC-4.20.16.git
+[submodule "third_party/cadvisor"]
+	path = third_party/cadvisor
+	url = git@github.com:PreritO/cadvisor.git
+[submodule "third_party/DeathStarBench"]
+	path = third_party/DeathStarBench
+	url = git@github.com:gregcusack/DeathStarBench.git
