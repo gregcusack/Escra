@@ -2,7 +2,7 @@
 
 uname=$1
 
-
+uname=gcusack
 sudo mkfs.ext4 /dev/sda4
 sudo mkdir /mnt/ECKernel
 sudo mount /dev/sda4 /mnt/ECKernel

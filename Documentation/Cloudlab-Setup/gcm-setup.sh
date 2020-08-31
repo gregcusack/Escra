@@ -7,6 +7,18 @@ sudo mkdir /mnt/ECKernel
 sudo mount /dev/sda4 /mnt/ECKernel
 sudo chown -R $uname:root /mnt/ECKernel
 
+git clone git@github.com:gregcusack/Distributed-Containers.git
+cd Distributed-Containers
+git submodule update --init -- ec_gcm/
+cd ec_gcm
+git checkout ftr-delete-pod
+cd ..
+git submodule update --init -- ec_deployer/
+cd ec_deployer
+git checkout bug-mem-ONLY
+cd ~
+
+# Delete
 git clone git@github.com:gregcusack/ec_gcm.git
 cd ec_gcm
 git checkout ftr-delete-pod
@@ -14,9 +26,9 @@ cd ~
 
 git clone git@github.com:gregcusack/ec_deployer.git
 cd ec_deployer
-git checkout ftr-bug-ONLY
+git checkout bug-mem-ONLY
 cd ~
-
+# End Delete
 
 # INSTALL: cmake
 version=3.16
@@ -99,6 +111,7 @@ sudo apt-get install -y build-essential autoconf libtool pkg-config
 git clone --recurse-submodules -b v1.28.1 https://github.com/grpc/grpc
 cd grpc
 mkdir -p cmake/build
+cd cmake/build
 
 cmake ../.. -DgRPC_INSTALL=ON                \
               -DCMAKE_BUILD_TYPE=Release       \
@@ -107,8 +120,9 @@ cmake ../.. -DgRPC_INSTALL=ON                \
               -DBUILD_SHARED_LIBS=ON \
               -DCMAKE_INSTALL_PREFIX=/usr/local
 
-make -j10
+make -j20
 sudo make install
+cd ~
 
 # INSTALL: go v1.14.4
 curl -O https://storage.googleapis.com/golang/go1.14.4.linux-amd64.tar.gz
