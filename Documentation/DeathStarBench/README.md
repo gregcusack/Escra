@@ -21,6 +21,11 @@ You shouldn't have to change lines 55, 59, 63, and 67 in `<path-to-repo>/DeathSt
 
 **ALSO:** This is the path to the repo of DSB on the WORKER NODES. But you're entering the value on the GCM. This tells worker node where to get nginx info from on the workern node
 
+### Known Issues:
+1. Sometimes the nginx webserver will not start and gets stuck in "ContainerCreating". There are two possible reasons for this
+	1. You haven't allocated enough memory to the entire cluster, so nginx doesn't get enough memory to actually deploy. You can increase total memory or simply try to deploy again. With `5000mem` for the entire cluster, sometimes nginx deploys and sometimes it doesnt. 
+	2. The path in `<path-to-repo>/DeathStarBench/mediaMicroservices/k8s-yaml/nginx-web-server.yaml` on the GCM is incorrect. Update to reflect the path of where DSB is installed on the worker nodes.
+
 -----------------------------
 
 #### LEGACY NOTES. SHOULDN'T HAVE TO WORRY ABOUT STUFF BELOW. BUT CAN USE TO TROUBLESHOOT IF ISSUES
