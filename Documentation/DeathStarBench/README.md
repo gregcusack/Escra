@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Running DSB workload
 1. Get IP address of service:
 ```
