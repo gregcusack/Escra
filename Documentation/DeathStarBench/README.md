@@ -18,6 +18,7 @@ cd ~/Distributed-Containers/third_party/DeathStarBench/mediaMicroservices/script
 
 ### Note: 
 You shouldn't have to change lines 55, 59, 63, and 67 in `<path-to-repo>/DeathStarBench/mediaMicroservices/k8s-yaml/nginx-web-server.yaml` to the the installation directory location of DeathStarBench if you followed the `insert-mods` steps. DSB should be in `/mnt/ECKernel/Distributed-Containers/third_party/DeathStarBench/`
+
 **ALSO:** This is the path to the repo of DSB on the WORKER NODES. But you're entering the value on the GCM. This tells worker node where to get nginx info from on the workern node
 
 -----------------------------
