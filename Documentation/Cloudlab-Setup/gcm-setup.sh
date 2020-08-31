@@ -22,18 +22,6 @@ cd third_party/DeathStarBench
 git checkout k8s-support
 cd ~
 
-# Delete
-git clone git@github.com:gregcusack/ec_gcm.git
-cd ec_gcm
-git checkout ftr-delete-pod
-cd ~
-
-git clone git@github.com:gregcusack/ec_deployer.git
-cd ec_deployer
-git checkout bug-mem-ONLY
-cd ~
-# End Delete
-
 # INSTALL: cmake
 version=3.16
 build=2

@@ -58,25 +58,27 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 cd ~
 
 #INSTALL EC-Agent
-git clone git@github.com:Maziyar-Na/EC-Agent.git
+git clone git@github.com:gregcusack/Distributed-Containers.git /mnt/ECKernel/Distributed-Containers
+cd /mnt/ECKernel/Distributed-Containers
+git submodule update --init -- EC-Agent/
 cd EC-Agent
 git checkout ftr-delete-pod
-cd ~
-
-# INSTALL: gcm for cadvisor stuff
-git clone --recurse-submodules git@github.com:gregcusack/ec_gcm.git
-cd ec_gcm
-git checkout ftr-delete-pod
-git submodule update --init --recursive
-cd cAdvisorSDK/cadvisor
+cd ..
+git submodule update --init -- third_party/cadvisor/
+cd third_party/cadvisor
 make build
-cd ~
+cd ../..
+git submodule update --init -- third_party/DeathStarBench/
+cd third_party/DeathStarBench
+git checkout k8s-support
+cd ../../
 
 
 # INSTALL: kernel and compile and reboot
-git clone git@github.com:gregcusack/EC-4.20.16.git /mnt/ECKernel/EC-4.20.16
-cd /mnt/ECKernel/EC-4.20.16
-git checkout ftr-bug-ONLY
+cd /mnt/ECKernel/Distributed-Containers
+git submodule update --init -- EC-4.20.16/
+cd EC-4.20.16
+git checkout bug-mem-ONLY
 
 cp -v /boot/config-$(uname -r) .config
 sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev
