@@ -16,11 +16,12 @@ cd ~/Distributed-Containers/third_party/DeathStarBench/mediaMicroservices/script
 ../wrk2/wrk -D exp -t <num-threads> -c 1<num-conns> -d <duration>s -L -s ../wrk2/scripts/media-microservices/compose-review.lua http://$SVC_IPADDR:8080/wrk2-api/review/compose -R <reqs-per-sec>
 ```
 
-### Note: You shouldn't have to change lines 55, 59, 63, and 67 in `<path-to-repo>/DeathStarBench/mediaMicroservices/k8s-yaml/nginx-web-server.yaml` to the the installation directory location of DeathStarBench if you followed the `insert-mods` steps. DSB should be in `/mnt/ECKernel/Distributed-Containers/third_party/DeathStarBench/`
+### Note: 
+You shouldn't have to change lines 55, 59, 63, and 67 in `<path-to-repo>/DeathStarBench/mediaMicroservices/k8s-yaml/nginx-web-server.yaml` to the the installation directory location of DeathStarBench if you followed the `insert-mods` steps. DSB should be in `/mnt/ECKernel/Distributed-Containers/third_party/DeathStarBench/`
 **ALSO:** This is the path to the repo of DSB on the WORKER NODES. But you're entering the value on the GCM. This tells worker node where to get nginx info from on the workern node
 
 
-##### LEGACY NOTES. SHOULDN'T HAVE TO WORRY ABOUT STUFF BELOW. BUT CAN USE TO TROUBLESHOOT IF ISSUES
+#### LEGACY NOTES. SHOULDN'T HAVE TO WORRY ABOUT STUFF BELOW. BUT CAN USE TO TROUBLESHOOT IF ISSUES
 Running DeathStar Bench
 1. Register users and movie information
 	1. Use ```kubectl -n media-microsvc get svc nginx-web-server``` to get its cluster-ip
