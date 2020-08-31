@@ -13,8 +13,11 @@ python3.7 write_movie_info.py --server_ip $SVC_IPADDR:8080 -c ../datasets/tmdb/c
 3. Run workload. This is configurable:
 ```
 cd ~/Distributed-Containers/third_party/DeathStarBench/mediaMicroservices/scripts
-../wrk2/wrk -D exp -t <num-threads> -c 1<num-conns> -d <duration>s -L -s ../wrk2/scripts/media-microservices/compose-review.lua http://$SVC_IPADDR:8080/wrk2-api/review/compose -R <reqs-per-sec>
+../wrk2/wrk -D exp -t <num-threads> -c <num-conns> -d <duration>s -L -s ../wrk2/scripts/media-microservices/compose-review.lua http://$SVC_IPADDR:8080/wrk2-api/review/compose -R <reqs-per-sec>
 ```
+	1. Example: 
+	```../wrk2/wrk -D exp -t 1 -c 10 -d 20s -L -s ../wrk2/scripts/media-microservices/compose-review.lua http://10.106.218.226:8080/wrk2-api/review/compose -R 100
+	```
 
 ### Note: 
 You shouldn't have to change lines 55, 59, 63, and 67 in `<path-to-repo>/DeathStarBench/mediaMicroservices/k8s-yaml/nginx-web-server.yaml` to the the installation directory location of DeathStarBench if you followed the `insert-mods` steps. DSB should be in `/mnt/ECKernel/Distributed-Containers/third_party/DeathStarBench/`
