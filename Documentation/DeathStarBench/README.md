@@ -15,8 +15,7 @@ python3.7 write_movie_info.py --server_ip $SVC_IPADDR:8080 -c ../datasets/tmdb/c
 cd ~/Distributed-Containers/third_party/DeathStarBench/mediaMicroservices/scripts
 ../wrk2/wrk -D exp -t <num-threads> -c <num-conns> -d <duration>s -L -s ../wrk2/scripts/media-microservices/compose-review.lua http://$SVC_IPADDR:8080/wrk2-api/review/compose -R <reqs-per-sec>
 ```
-
-	1. Example: 
+	Example: 
 	```../wrk2/wrk -D exp -t 1 -c 10 -d 20s -L -s ../wrk2/scripts/media-microservices/compose-review.lua http://10.106.218.226:8080/wrk2-api/review/compose -R 100```
 
 ### Note: 
