@@ -16,6 +16,10 @@ cd ..
 git submodule update --init -- ec_deployer/
 cd ec_deployer
 git checkout bug-mem-ONLY
+cd ..
+git submodule update --init -- third_party/DeathStarBench/
+cd third_party/DeathStarBench
+git checkout k8s-support
 cd ~
 
 # Delete
@@ -174,7 +178,7 @@ sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt update -y
 sudo apt install -y python3.7
 
-sudo apt install python3-pip
+sudo apt install -y python3-pip
 python3.7 -m pip install --upgrade pip
 python3.7 -m pip install asyncio
 python3.7 -m pip install aiohttp
@@ -183,10 +187,17 @@ sudo apt install -y luarocks
 sudo luarocks install luasocket
 sudo apt install -y libmemcached-dev
 
+# COMPILE GCM
+cd ~/Distributed-Containers/ec_gcm 
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=/usr/bin/gcc-8 -DCMAKE_CXX_COMPILER=/usr/bin/g++-8 .
+make -j20
+
+
 # SETUP: Deathstar Bench
 # Change lines 55, 59, 63, and 67 in <path-to-repo>/DeathStarBench/mediaMicroservices/k8s-yaml/nginx-web-server.yaml which refers to the the installation directory location of DeathStarBench to the appropriate location
 # Use kubectl -n media-microsvc get svc nginx-web-server to get its cluster-ip.
-# Paste the cluster ip at <path-of-repo>/mediaMicroservices/scripts/write_movie_info.py:99 and <path-of-repo>/mediaMicroservices/scripts/register_users.sh:5 3.Update <path-of-repo>/mediaMicroservices/scripts/write_movie_info.py:95 & 97 to point to the installation path of the repo
+# Paste the cluster ip at <path-of-repo>/mediaMicroservices/scripts/write_movie_info.py:99 and <path-of-repo>/mediaMicroservices/scripts/register_users.sh:5 
+# 3.Update <path-of-repo>/mediaMicroservices/scripts/write_movie_info.py:95 & 97 to point to the installation path of the repo
 # python3 <path-of-repo>/mediaMicroservices/scripts/write_movie_info.py && <path-of-repo>/mediaMicroservices/scripts/register_users.sh
 # And finally, to run the an instance of the HTTP workload generator (i.e. compose reviews for the movies)
 # Paste the cluster ip at <path-of-repo>/mediaMicroservices/wrk2/scripts/media-microservices/compose-review.lua:1032
