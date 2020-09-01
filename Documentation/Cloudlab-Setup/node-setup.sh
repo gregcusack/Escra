@@ -87,6 +87,7 @@ sudo make -j20 && sudo make -j20 modules_install && sudo make -j20 install
 sudo reboot
 
 # Run the following on reboot
+# sudo swapoff -a
 # sudo mount /dev/sda4 /mnt/ECKernel
 # sudo kubeadm join 128.105.144.171:6443 --token <token-from-gcm-output> \
 #    --discovery-token-ca-cert-hash <sha-val-from-gcm-output>
