@@ -7,16 +7,20 @@ sudo mkdir /mnt/ECKernel
 sudo mount /dev/sda4 /mnt/ECKernel
 sudo chown -R $uname:root /mnt/ECKernel
 
-git clone git@github.com:gregcusack/ec_gcm.git
+git clone git@github.com:gregcusack/Distributed-Containers.git
+cd Distributed-Containers
+git submodule update --init -- ec_gcm/
 cd ec_gcm
 git checkout ftr-delete-pod
-cd ~
-
-git clone git@github.com:gregcusack/ec_deployer.git
+cd ..
+git submodule update --init -- ec_deployer/
 cd ec_deployer
-git checkout ftr-bug-ONLY
+git checkout bug-mem-ONLY
+cd ..
+git submodule update --init -- third_party/DeathStarBench/
+cd third_party/DeathStarBench
+git checkout k8s-support
 cd ~
-
 
 # INSTALL: cmake
 version=3.16
@@ -99,6 +103,7 @@ sudo apt-get install -y build-essential autoconf libtool pkg-config
 git clone --recurse-submodules -b v1.28.1 https://github.com/grpc/grpc
 cd grpc
 mkdir -p cmake/build
+cd cmake/build
 
 cmake ../.. -DgRPC_INSTALL=ON                \
               -DCMAKE_BUILD_TYPE=Release       \
@@ -107,8 +112,9 @@ cmake ../.. -DgRPC_INSTALL=ON                \
               -DBUILD_SHARED_LIBS=ON \
               -DCMAKE_INSTALL_PREFIX=/usr/local
 
-make -j10
+make -j20
 sudo make install
+cd ~
 
 # INSTALL: go v1.14.4
 curl -O https://storage.googleapis.com/golang/go1.14.4.linux-amd64.tar.gz
@@ -160,7 +166,7 @@ sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt update -y
 sudo apt install -y python3.7
 
-sudo apt install python3-pip
+sudo apt install -y python3-pip
 python3.7 -m pip install --upgrade pip
 python3.7 -m pip install asyncio
 python3.7 -m pip install aiohttp
@@ -169,10 +175,17 @@ sudo apt install -y luarocks
 sudo luarocks install luasocket
 sudo apt install -y libmemcached-dev
 
+# COMPILE GCM
+cd ~/Distributed-Containers/ec_gcm 
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=/usr/bin/gcc-8 -DCMAKE_CXX_COMPILER=/usr/bin/g++-8 .
+make -j20
+
+
 # SETUP: Deathstar Bench
 # Change lines 55, 59, 63, and 67 in <path-to-repo>/DeathStarBench/mediaMicroservices/k8s-yaml/nginx-web-server.yaml which refers to the the installation directory location of DeathStarBench to the appropriate location
 # Use kubectl -n media-microsvc get svc nginx-web-server to get its cluster-ip.
-# Paste the cluster ip at <path-of-repo>/mediaMicroservices/scripts/write_movie_info.py:99 and <path-of-repo>/mediaMicroservices/scripts/register_users.sh:5 3.Update <path-of-repo>/mediaMicroservices/scripts/write_movie_info.py:95 & 97 to point to the installation path of the repo
+# Paste the cluster ip at <path-of-repo>/mediaMicroservices/scripts/write_movie_info.py:99 and <path-of-repo>/mediaMicroservices/scripts/register_users.sh:5 
+# 3.Update <path-of-repo>/mediaMicroservices/scripts/write_movie_info.py:95 & 97 to point to the installation path of the repo
 # python3 <path-of-repo>/mediaMicroservices/scripts/write_movie_info.py && <path-of-repo>/mediaMicroservices/scripts/register_users.sh
 # And finally, to run the an instance of the HTTP workload generator (i.e. compose reviews for the movies)
 # Paste the cluster ip at <path-of-repo>/mediaMicroservices/wrk2/scripts/media-microservices/compose-review.lua:1032
