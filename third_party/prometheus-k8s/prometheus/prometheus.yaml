@@ -1,6 +1,6 @@
 global:
-  scrape_interval: 10s
-  scrape_timeout: 10s
+  scrape_interval: 1s
+  scrape_timeout: 1s
   evaluation_interval: 10s
 scrape_configs:
 
@@ -116,4 +116,3 @@ scrape_configs:
         regex: (.+)
         target_label: __metrics_path__
         replacement: /api/v1/nodes/${1}/proxy/metrics/cadvisor
-        
