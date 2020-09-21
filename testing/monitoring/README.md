@@ -86,6 +86,15 @@
     service/prometheus                 NodePort    10.96.11.6       <none>        9090:30871/TCP   2m16s
     ```
 
-5. To quickly shut down all components, you can just delete that namespace: `kubectl delete ns monitoring`
+5. Run CPU/Memory queries on prometheus. For instance, for CPU, we have:
+    ```
+    sum(rate(container_cpu_usage_seconds_total{pod!="~jaeger*", image!="", container_name!="POD", namespace="media-microsvc"}[1m])) by (pod) 
+    ```
+    And for memory:
+    ```
+    sum(container_memory_usage_bytes{pod!="jaeger*", image!="", container_name!="POD", namespace="media-microsvc"}) by (pod)
+    ```
+
+6. To quickly shut down all components, you can just delete that namespace: `kubectl delete ns monitoring`
 
 Source: I heavily referenced the [this repo](https://github.com/giantswarm/prometheus/blob/master/manifests-all.yaml) to set up this folder but modified it for our needs

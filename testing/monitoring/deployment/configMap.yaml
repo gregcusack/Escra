@@ -121,7 +121,7 @@ data:
             replacement: /api/v1/nodes/${1}/proxy/metrics/cadvisor
 kind: ConfigMap
 metadata:
-  creationTimestamp: "2020-09-21T19:03:29Z"
+  creationTimestamp: "2020-09-21T20:08:20Z"
   managedFields:
   - apiVersion: v1
     fieldsType: FieldsV1
@@ -131,10 +131,10 @@ metadata:
         f:prometheus.yaml: {}
     manager: kubectl-create
     operation: Update
-    time: "2020-09-21T19:03:29Z"
+    time: "2020-09-21T20:08:20Z"
   name: prometheus-core
   namespace: monitoring
-  resourceVersion: "19171"
+  resourceVersion: "30357"
   selfLink: /api/v1/namespaces/monitoring/configmaps/prometheus-core
-  uid: 04d5a93e-fcb4-4478-a73b-92c106fac6a8
+  uid: ef49d477-ce92-426f-a137-5697f202df54
   namespace: monitoring
