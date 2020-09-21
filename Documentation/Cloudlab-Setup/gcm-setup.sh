@@ -2,13 +2,12 @@
 
 uname=$1
 
-#sudo mkfs.ext4 /dev/sda4
-#sudo mkdir /mnt/ECKernel
-#sudo mount /dev/sda4 /mnt/ECKernel
-#sudo chown -R $uname:root /mnt/ECKernel
+sudo mkfs.ext4 /dev/sda4
+sudo mkdir /mnt/ECKernel
+sudo mount /dev/sda4 /mnt/ECKernel
+sudo chown -R $uname:root /mnt/ECKernel
 
-#git clone git@github.com:gregcusack/Distributed-Containers.git
-cd /mnt/ECKernel
+git clone git@github.com:gregcusack/Distributed-Containers.git
 cd Distributed-Containers
 git submodule update --init -- ec_gcm/
 cd ec_gcm
@@ -37,7 +36,7 @@ sudo make install
 
 sudo apt-get update
 sudo apt-get install -y g++ git libboost-atomic-dev libboost-thread-dev libboost-system-dev libboost-date-time-dev libboost-regex-dev libboost-filesystem-dev libboost-random-dev libboost-chrono-dev libboost-serialization-dev libwebsocketpp-dev openssl libssl-dev ninja-build
-cd /mnt/ECKernel
+cd ~
 
 # INSTALL: casablanca
 git clone git@github.com:microsoft/cpprestsdk.git casablanca
@@ -49,7 +48,7 @@ cmake -G Ninja .. -DCMAKE_BUILD_TYPE=Debug
 ninja
 
 sudo ninja install
-cd /mnt/ECKernel
+cd ~
 
 # INSTALL: Docker
 sudo apt-get update
@@ -95,7 +94,7 @@ make -j12
 make -j12 check
 sudo make -j12 install
 sudo ldconfig
-cd /mnt/ECKernel
+cd ~
 
 
 # INSTALL: grpc --> C++
@@ -115,7 +114,7 @@ cmake ../.. -DgRPC_INSTALL=ON                \
 
 make -j20
 sudo make install
-cd /mnt/ECKernel
+cd ~
 
 # INSTALL: go v1.14.4
 curl -O https://storage.googleapis.com/golang/go1.14.4.linux-amd64.tar.gz
@@ -126,7 +125,7 @@ echo 'export GOPATH=$HOME/go' | sudo tee -a ~/.profile
 echo 'export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin' | sudo tee -a ~/.profile
 source ~/.profile
 go version
-cd /mnt/ECKernel
+cd ~
 
 # Install: grpc go
 export GO111MODULE=on
@@ -177,7 +176,7 @@ sudo luarocks install luasocket
 sudo apt install -y libmemcached-dev
 
 # COMPILE GCM
-cd /mnt/ECKernel/Distributed-Containers/ec_gcm 
+cd ~/Distributed-Containers/ec_gcm 
 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=/usr/bin/gcc-8 -DCMAKE_CXX_COMPILER=/usr/bin/g++-8 .
 make -j20
 
