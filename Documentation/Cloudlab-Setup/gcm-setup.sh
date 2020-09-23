@@ -20,6 +20,8 @@ cd ..
 git submodule update --init -- third_party/DeathStarBench/
 cd third_party/DeathStarBench
 git checkout k8s-support
+cd ..
+git submodule update --init -- third_party/spdlog/
 cd ~
 
 # INSTALL: cmake
@@ -132,6 +134,11 @@ export GO111MODULE=on
 go get github.com/golang/protobuf/protoc-gen-go
 export PATH="$PATH:$(go env GOPATH)/bin"
 
+# install SPDLOG - logging for GCM
+cd ~/istributed-Containers/third_party/spdlog
+mkdir build && cd build
+cmake .. && make -j && sudo make install
+cd ~
 
 #Setup Kubernetes
 sudo swapoff -a
