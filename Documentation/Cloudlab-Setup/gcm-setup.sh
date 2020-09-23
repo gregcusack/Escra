@@ -135,7 +135,7 @@ go get github.com/golang/protobuf/protoc-gen-go
 export PATH="$PATH:$(go env GOPATH)/bin"
 
 # install SPDLOG - logging for GCM
-cd ~/istributed-Containers/third_party/spdlog
+cd ~/Distributed-Containers/third_party/spdlog
 mkdir build && cd build
 cmake .. && make -j && sudo make install
 cd ~
