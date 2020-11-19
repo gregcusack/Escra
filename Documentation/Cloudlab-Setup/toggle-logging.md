@@ -6,6 +6,7 @@ change `#define DEBUG_LOGS 1` to `#define DEBUG_LOGS 0`
 ## Remove GCM logging: ##
 1) `sudo rm -rf CMakeCache.txt CMakeFiles cmake_install.cmake`
 2) `cmake -DCMAKE_BUILD_TYPE=Release -DWITH_DEBUG=info -DCMAKE_C_COMPILER=/usr/bin/gcc-8 -DCMAKE_CXX_COMPILER=/usr/bin/g++-8 .`
+3) `make -j40`
 
 ## Compiling on unmodified kernel 4.20.16 ##
 `cd /mnt/ECKernel/Distributed-Containers/EC-4.20.15`
