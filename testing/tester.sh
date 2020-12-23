@@ -21,13 +21,13 @@ fi
 for ((i=0;i<$num_tests;i++)); 
 do 
 
-	filename="${test_type}-${ratio}-${i}.txt"
+	filename="${test_type}-${ratio}x-v${i}.txt"
 	echo "RUN: ${i}, filename: ${filename}"
 	/users/gcusack/Distributed-Containers/third_party/DeathStarBench/mediaMicroservices/wrk2/wrk -P -t 1 -c 10 -d $duration -s /users/gcusack/Distributed-Containers/third_party/DeathStarBench/mediaMicroservices/wrk2/scripts/media-microservices/compose-review.lua http://$SVC_IPADDR:8080/wrk2-api/review/compose -R $rate
 
 	sleep 1	
 
-	cp /users/gcusack/0.txt /mnt/ECKernel/test-results/"${test_type}-${ratio}-${i}.txt" 
+	cp /users/gcusack/0.txt /mnt/ECKernel/test-results/"${filename}" 
 
 done
 
