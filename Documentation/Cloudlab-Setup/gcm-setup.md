@@ -1,6 +1,6 @@
-### Steps for Setting up Cloud Controller on Cloudlab ###
+# Steps for Setting up Cloud Controller on Cloudlab #
 
-# MOUNT ECKERNEL 
+### MOUNT ECKERNEL 
 ```
 uname=<username>
 sudo mkfs.ext4 /dev/sda4
@@ -9,7 +9,7 @@ sudo mount /dev/sda4 /mnt/ECKernel
 sudo chown -R $uname:root /mnt/ECKernel
 ```
 
-# DOWNLOAD GIT REPO
+### DOWNLOAD GIT REPO
 ```
 git clone git@github.com:gregcusack/Distributed-Containers.git
 cd Distributed-Containers
@@ -29,7 +29,7 @@ git submodule update --init -- third_party/spdlog/
 cd ~
 ```
 
-# INSTALL: cmake
+### INSTALL: cmake
 ```
 version=3.16
 build=2
@@ -47,7 +47,7 @@ sudo apt-get install -y g++ git libboost-atomic-dev libboost-thread-dev libboost
 cd ~
 ```
 
-# INSTALL: casablanca
+### INSTALL: casablanca
 ```
 git clone git@github.com:microsoft/cpprestsdk.git casablanca
 cd casablanca
@@ -59,7 +59,7 @@ sudo ninja install
 cd ~
 ```
 
-# INSTALL: Docker
+### INSTALL: Docker
 ```
 sudo apt-get update
 sudo apt-get install -y \
@@ -81,7 +81,7 @@ sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 ```
 
-# INSTALL: Kubernetes
+### INSTALL: Kubernetes
 ```
 sudo apt-get update && sudo apt-get install -y apt-transport-https
 sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
@@ -91,14 +91,14 @@ sudo apt-get update
 sudo apt-get install -y kubelet kubeadm kubectl
 ```
 
-# INSTALL gcc-8
+### INSTALL gcc-8
 ```
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 sudo apt-get update
 sudo apt-get install -y gcc-8 g++-8
 ```
 
-# INSTALL: protobuf
+### INSTALL: protobuf
 ```
 git clone https://github.com/protocolbuffers/protobuf.git
 cd protobuf
@@ -112,7 +112,7 @@ sudo ldconfig
 cd ~
 ```
 
-# INSTALL: grpc --> C++
+### INSTALL: grpc --> C++
 ```
 sudo apt-get install -y build-essential autoconf libtool pkg-config
 
@@ -133,7 +133,7 @@ sudo make install
 cd ~
 ```
 
-# INSTALL: go v1.14.4
+### INSTALL: go v1.14.4
 ```
 curl -O https://storage.googleapis.com/golang/go1.14.4.linux-amd64.tar.gz
 tar -xvf go1.14.4.linux-amd64.tar.gz
@@ -146,14 +146,14 @@ go version
 cd ~
 ```
 
-# Install: grpc go
+### Install: grpc go
 ```
 export GO111MODULE=on
 go get github.com/golang/protobuf/protoc-gen-go
 export PATH="$PATH:$(go env GOPATH)/bin"
 ```
 
-# install SPDLOG - logging for GCM
+### Install SPDLOG - logging for GCM
 ```
 cd ~/Distributed-Containers/third_party/spdlog
 mkdir build && cd build
@@ -161,7 +161,7 @@ cmake .. && make -j && sudo make install
 cd ~
 ```
 
-# Setup Kubernetes
+### Setup Kubernetes
 * Set K8s to run on the private cloudlab IP
 * In file: `/etc/systemd/system/kubelet.service.d/10-kubeadm.conf`
 * Change line `Environment="KUBELET_CONFIG_ARGS=--config=/var/lib/kubelet/config.yaml"` to:
@@ -189,9 +189,9 @@ export kubever=$(kubectl version | base64 | tr -d '\n')
 kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$kubever"
 ```
 
-#After worker nodes run: kubeadm join..., run kubectl get nodes
+* After worker nodes run: kubeadm join..., run kubectl get nodes
 
-#INSTALL: Python 3
+### INSTALL: Python 3
 ```
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt update -y
@@ -207,15 +207,16 @@ sudo luarocks install luasocket
 sudo apt install -y libmemcached-dev
 ```
 
-# COMPILE GCM
+### COMPILE GCM
 ```
 cd ~/Distributed-Containers/ec_gcm 
 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=/usr/bin/gcc-8 -DCMAKE_CXX_COMPILER=/usr/bin/g++-8 .
 make -j20
 ```
 
-# RUN MEM TEST
-# kubectl exec -it -n media-microsvc <pod-name> -- /bin/bash
-# apt update && apt install stress
-# stress -m 1 --vm-bytes <bytes-to-alloc>m --timeout 10s --verbose
-
+### RUN MEM TEST ###
+```
+kubectl exec -it -n media-microsvc <pod-name> -- /bin/bash
+apt update && apt install stress
+stress -m 1 --vm-bytes <bytes-to-alloc>m --timeout 10s --verbose
+```

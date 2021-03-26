@@ -1,6 +1,6 @@
-### Steps for Setting up Worker Nodes on Cloudlab ###
+# Steps for Setting up Worker Nodes on Cloudlab
 
-# MOUNT ECKERNEL 
+### MOUNT ECKERNEL 
 ```
 uname=<username>
 sudo mkfs.ext4 /dev/sda4
@@ -10,7 +10,7 @@ sudo chown -R $uname:root /mnt/ECKernel
 sudo swapoff -a
 ```
 
-# INSTALL: Docker
+### INSTALL: Docker
 ```
 sudo apt-get update
 sudo apt-get install -y \
@@ -32,7 +32,7 @@ sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 ```
 
-# INSTALL: Kubernetes
+### INSTALL: Kubernetes
 ```
 sudo apt-get update && sudo apt-get install -y apt-transport-https
 sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
@@ -42,7 +42,7 @@ sudo apt-get update
 sudo apt-get install -y kubelet kubeadm kubectl
 ```
 
-# INSTALL: go v1.14.4
+### INSTALL: go v1.14.4
 ```
 curl -O https://storage.googleapis.com/golang/go1.14.4.linux-amd64.tar.gz
 tar -xvf go1.14.4.linux-amd64.tar.gz
@@ -54,7 +54,7 @@ source ~/.profile
 go version
 ```
 
-# INSTALL: grpc go
+### INSTALL: grpc go
 ```
 export GO111MODULE=on
 go get github.com/golang/protobuf/protoc-gen-go
@@ -62,7 +62,7 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 cd ~
 ```
 
-#INSTALL EC-Agent
+### INSTALL EC-Agent
 ```
 git clone git@github.com:gregcusack/Distributed-Containers.git /mnt/ECKernel/Distributed-Containers
 cd /mnt/ECKernel/Distributed-Containers
@@ -80,7 +80,7 @@ git checkout k8s-support
 cd ../../
 ```
 
-# INSTALL: kernel and compile and reboot
+### INSTALL: kernel and compile and reboot
 ```
 cd /mnt/ECKernel/Distributed-Containers
 git submodule update --init -- EC-4.20.16/
@@ -94,7 +94,7 @@ sudo make -j20 && sudo make -j20 modules_install && sudo make -j20 install
 sudo reboot
 ```
 
-# Setup Kubernetes
+### Setup Kubernetes
 * Set K8s to run on the private cloudlab IP
 * In file: `/etc/systemd/system/kubelet.service.d/10-kubeadm.conf`
 * Change line `Environment="KUBELET_CONFIG_ARGS=--config=/var/lib/kubelet/config.yaml"` to:
@@ -102,8 +102,10 @@ sudo reboot
 * Run: `sudo systemctl daemon-reload` followed by: `sudo systemctl restart kubelet`
 
 
-# Run the following on reboot
-# sudo swapoff -a
-# sudo mount /dev/sda4 /mnt/ECKernel
-# sudo kubeadm join 128.105.144.171:6443 --token <token-from-gcm-output> \
-#    --discovery-token-ca-cert-hash <sha-val-from-gcm-output>
+### Run the following on reboot ###
+```
+sudo swapoff -a
+sudo mount /dev/sda4 /mnt/ECKernel
+sudo kubeadm join 128.105.144.171:6443 --token <token-from-gcm-output> \
+   --discovery-token-ca-cert-hash <sha-val-from-gcm-output>
+   ```
