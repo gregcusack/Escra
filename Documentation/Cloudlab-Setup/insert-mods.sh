@@ -36,7 +36,7 @@ cd /mnt/ECKernel/Distributed-Containers/EC-4.20.16/ec_modules/read_mem_usage/ &&
 sudo insmod /mnt/ECKernel/Distributed-Containers/EC-4.20.16/ec_modules/read_mem_usage/read_mem_usage.ko
 
 echo "MAKING AND INSERTING read_mem_limit...\n\n"
-sudo rmmod /mnt/ECKernel/Distributed-Containers/EC-4.20.16/ec_modules/read_mem_limit/read_mem_usage.ko
+sudo rmmod /mnt/ECKernel/Distributed-Containers/EC-4.20.16/ec_modules/read_mem_limit/read_mem_limit.ko
 cd /mnt/ECKernel/Distributed-Containers/EC-4.20.16/ec_modules/read_mem_limit/ && sudo make
-sudo insmod /mnt/ECKernel/Distributed-Containers/EC-4.20.16/ec_modules/read_mem_limit/read_mem_usage.ko
+sudo insmod /mnt/ECKernel/Distributed-Containers/EC-4.20.16/ec_modules/read_mem_limit/read_mem_limit.ko
 
