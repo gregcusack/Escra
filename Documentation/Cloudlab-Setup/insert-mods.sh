@@ -29,3 +29,14 @@ echo "MAKING AND INSERTING get_parent_cgid...\n\n"
 sudo rmmod /mnt/ECKernel/Distributed-Containers/EC-4.20.16/ec_modules/get_parent_cgid/KERN_SRC/get_parent_cgid.ko
 cd /mnt/ECKernel/Distributed-Containers/EC-4.20.16/ec_modules/get_parent_cgid/KERN_SRC/ && sudo make
 sudo insmod /mnt/ECKernel/Distributed-Containers/EC-4.20.16/ec_modules/get_parent_cgid/KERN_SRC/get_parent_cgid.ko
+
+echo "MAKING AND INSERTING read_mem_usage...\n\n"
+sudo rmmod /mnt/ECKernel/Distributed-Containers/EC-4.20.16/ec_modules/read_mem_usage/read_mem_usage.ko
+cd /mnt/ECKernel/Distributed-Containers/EC-4.20.16/ec_modules/read_mem_usage/ && sudo make
+sudo insmod /mnt/ECKernel/Distributed-Containers/EC-4.20.16/ec_modules/read_mem_usage/read_mem_usage.ko
+
+echo "MAKING AND INSERTING read_mem_limit...\n\n"
+sudo rmmod /mnt/ECKernel/Distributed-Containers/EC-4.20.16/ec_modules/read_mem_limit/read_mem_limit.ko
+cd /mnt/ECKernel/Distributed-Containers/EC-4.20.16/ec_modules/read_mem_limit/ && sudo make
+sudo insmod /mnt/ECKernel/Distributed-Containers/EC-4.20.16/ec_modules/read_mem_limit/read_mem_limit.ko
+
