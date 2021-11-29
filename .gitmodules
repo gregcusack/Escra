@@ -25,3 +25,6 @@
 [submodule "third_party/apps/microservices-demo"]
 	path = third_party/apps/microservices-demo
 	url = git@github.com:gregcusack/microservices-demo.git
+[submodule "third_party/apps/train-ticket"]
+	path = third_party/apps/train-ticket
+	url = git@github.com:gregcusack/train-ticket.git
