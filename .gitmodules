@@ -28,3 +28,6 @@
 [submodule "third_party/apps/train-ticket"]
 	path = third_party/apps/train-ticket
 	url = git@github.com:gregcusack/train-ticket.git
+[submodule "third_party/apps/TeaStore"]
+	path = third_party/apps/TeaStore
+	url = git@github.com:gregcusack/TeaStore.git
