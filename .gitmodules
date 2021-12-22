@@ -31,3 +31,6 @@
 [submodule "third_party/apps/TeaStore"]
 	path = third_party/apps/TeaStore
 	url = git@github.com:gregcusack/TeaStore.git
+[submodule "third_party/apps/go-microservices"]
+	path = third_party/apps/go-microservices
+	url = git@github.com:gregcusack/go-micro-services.git
