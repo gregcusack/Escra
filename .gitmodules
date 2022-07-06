@@ -36,3 +36,7 @@
 	path = testing/ConfigureDeploymentLimits
 	url = git@github.com:gregcusack/ConfigureDeploymentLimits.git
 	branch = main
+[submodule "EC-4.20.16"]
+	path = EC-4.20.16
+	url = git@github.com:gregcusack/EC-4.20.16.git
+	branch = Escra-4.20.16-stable
