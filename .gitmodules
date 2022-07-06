@@ -30,12 +30,15 @@
 [submodule "third_party/apps/microservices-demo"]
 	path = third_party/apps/microservices-demo
 	url = git@github.com:gregcusack/microservices-demo.git
+	branch = main
 [submodule "third_party/apps/train-ticket"]
 	path = third_party/apps/train-ticket
 	url = git@github.com:gregcusack/train-ticket.git
+	branch = main
 [submodule "third_party/apps/TeaStore"]
 	path = third_party/apps/TeaStore
 	url = git@github.com:gregcusack/TeaStore.git
+	branch = main
 [submodule "third_party/apps/go-microservices"]
 	path = third_party/apps/go-microservices
 	url = git@github.com:gregcusack/go-micro-services.git
