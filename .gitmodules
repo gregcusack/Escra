@@ -11,18 +11,19 @@
 	path = EC-Agent
 	url = git@github.com:Maziyar-Na/EC-Agent.git
 	branch = master
-[submodule "third_party/apps/microservices-demo"]
-	path = third_party/apps/microservices-demo
-	url = git@github.com:gregcusack/microservices-demo.git
+[submodule "EC-4.20.16"]
+	path = EC-4.20.16
+	url = git@github.com:gregcusack/EC-4.20.16.git
+	branch = dev
+[submodule "ec_gcm"]
+	path = ec_gcm
+	url = git@github.com:gregcusack/ec_gcm.git
 	branch = main
-[submodule "third_party/apps/train-ticket"]
-	path = third_party/apps/train-ticket
-	url = git@github.com:gregcusack/train-ticket.git
+[submodule "ec_deployer"]
+	path = ec_deployer
+	url = git@github.com:gregcusack/ec_deployer.git
 	branch = main
-[submodule "third_party/apps/TeaStore"]
-	path = third_party/apps/TeaStore
-	url = git@github.com:gregcusack/TeaStore.git
+[submodule "third_party/DeathStarBench"]
+	path = third_party/DeathStarBench
+	url = git@github.com:gregcusack/DeathStarBench.git
 	branch = main
-[submodule "third_party/apps/go-microservices"]
-	path = third_party/apps/go-microservices
-	url = git@github.com:gregcusack/go-micro-services.git
