@@ -16,6 +16,7 @@
 [submodule "third_party/DeathStarBench"]
 	path = third_party/DeathStarBench
 	url = git@github.com:gregcusack/DeathStarBench.git
+	branch = main
 [submodule "third_party/spdlog"]
 	path = third_party/spdlog
 	url = git@github.com:gabime/spdlog.git
