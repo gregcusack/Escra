@@ -4,9 +4,6 @@
 [submodule "third_party/spdlog"]
 	path = third_party/spdlog
 	url = git@github.com:gabime/spdlog.git
-[submodule "testing/ConfigureDeploymentLimits"]
-	path = testing/ConfigureDeploymentLimits
-	url = git@github.com:gregcusack/ConfigureDeploymentLimits.git
 [submodule "EC-Agent"]
 	path = EC-Agent
 	url = git@github.com:Maziyar-Na/EC-Agent.git
