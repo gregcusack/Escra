@@ -36,3 +36,7 @@
 	path = third_party/apps/train-ticket
 	url = git@github.com:gregcusack/train-ticket.git
 	branch = main
+[submodule "testing/ConfigureDeploymentLimits"]
+	path = testing/ConfigureDeploymentLimits
+	url = git@github.com:gregcusack/ConfigureDeploymentLimits.git
+	branch = main
