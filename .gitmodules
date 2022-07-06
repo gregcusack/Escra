@@ -19,3 +19,7 @@
 [submodule "testing/ConfigureDeploymentLimits"]
 	path = testing/ConfigureDeploymentLimits
 	url = git@github.com:gregcusack/ConfigureDeploymentLimits.git
+[submodule "EC-Agent"]
+	path = EC-Agent
+	url = git@github.com:Maziyar-Na/EC-Agent.git
+	branch = master
