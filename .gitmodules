@@ -16,6 +16,7 @@
 [submodule "third_party/DeathStarBench"]
 	path = third_party/DeathStarBench
 	url = git@github.com:gregcusack/DeathStarBench.git
+	branch = main
 [submodule "third_party/spdlog"]
 	path = third_party/spdlog
 	url = git@github.com:gabime/spdlog.git
@@ -26,3 +27,18 @@
 	path = EC-Agent
 	url = git@github.com:Maziyar-Na/EC-Agent.git
 	branch = master
+[submodule "third_party/apps/microservices-demo"]
+	path = third_party/apps/microservices-demo
+	url = git@github.com:gregcusack/microservices-demo.git
+	branch = main
+[submodule "third_party/apps/train-ticket"]
+	path = third_party/apps/train-ticket
+	url = git@github.com:gregcusack/train-ticket.git
+	branch = main
+[submodule "third_party/apps/TeaStore"]
+	path = third_party/apps/TeaStore
+	url = git@github.com:gregcusack/TeaStore.git
+	branch = main
+[submodule "third_party/apps/go-microservices"]
+	path = third_party/apps/go-microservices
+	url = git@github.com:gregcusack/go-micro-services.git

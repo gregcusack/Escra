@@ -205,6 +205,7 @@ python3.7 -m pip install aiohttp
 sudo apt install -y luarocks
 sudo luarocks install luasocket
 sudo apt install -y libmemcached-dev
+sudo luarocks install json-lua
 ```
 
 ### COMPILE GCM
