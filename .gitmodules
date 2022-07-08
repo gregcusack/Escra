@@ -4,14 +4,6 @@
 [submodule "third_party/spdlog"]
 	path = third_party/spdlog
 	url = git@github.com:gabime/spdlog.git
-[submodule "EC-Agent"]
-	path = EC-Agent
-	url = git@github.com:Maziyar-Na/EC-Agent.git
-	branch = master
-[submodule "EC-4.20.16"]
-	path = EC-4.20.16
-	url = git@github.com:gregcusack/EC-4.20.16.git
-	branch = dev
 [submodule "ec_gcm"]
 	path = ec_gcm
 	url = git@github.com:gregcusack/ec_gcm.git
@@ -39,4 +31,12 @@
 [submodule "testing/ConfigureDeploymentLimits"]
 	path = testing/ConfigureDeploymentLimits
 	url = git@github.com:gregcusack/ConfigureDeploymentLimits.git
+	branch = main
+[submodule "EC-4.20.16"]
+	path = EC-4.20.16
+	url = git@github.com:gregcusack/EC-4.20.16.git
+	branch = Escra-4.20.16-stable
+[submodule "EC-Agent"]
+	path = EC-Agent
+	url = git@github.com:Maziyar-Na/EC-Agent.git
 	branch = main
