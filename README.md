@@ -7,6 +7,14 @@ This work has been deployed and tested in cloudlab using the following Cloudlab 
 
 Once all nodes are deployed, they should be connected to each other. Run `kubectl get nodes` on the `gcm` node to verify. 
 Next, setup ssh-keys for each node and add them to github. 
+Example. for each node run:
+```
+ssh-keygen
+# hit enter a bunch of times
+cat ~/.ssh/id_rsa.pub
+```
+copy output of above command into github
+
 Once your ssh-keys are added to github. You can continue following [THESE](https://github.com/hunhoffe/ec-cloudlab) instructions. 
 1) Run `/local/repository/gcm_setup.sh` on the control node (gcm node)
 2) Run `/local/repository/node_setup/sh` on the worker nodes
