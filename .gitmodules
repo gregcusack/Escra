@@ -4,10 +4,6 @@
 [submodule "third_party/spdlog"]
 	path = third_party/spdlog
 	url = git@github.com:gabime/spdlog.git
-[submodule "EC-Agent"]
-	path = EC-Agent
-	url = git@github.com:Maziyar-Na/EC-Agent.git
-	branch = master
 [submodule "ec_gcm"]
 	path = ec_gcm
 	url = git@github.com:gregcusack/ec_gcm.git
