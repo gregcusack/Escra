@@ -89,9 +89,11 @@ See [this](https://github.com/hunhoffe/ec-cloudlab/blob/main/Documentation/ecnod
 and then [this](https://github.com/hunhoffe/ec-cloudlab/blob/main/node_setup.sh) script
 
 ### Compile and run Controller (gcm)
+```
 cd Escra/ec_gcm
 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=/usr/bin/gcc-8 -DCMAKE_CXX_COMPILER=/usr/bin/g++-8 .
 make -j20
+```
 
 
 # Multitenancy
