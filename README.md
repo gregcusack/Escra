@@ -22,7 +22,7 @@ Once your ssh-keys are added to github. You can continue following [THESE](https
 
 Note to start periodic reclamation after all the containers are deployed, you need to set the value that is stored in Manager.cpp in ec_gcm
 
-# Example: media-microsvc:
+## Example: media-microsvc:
 
 On each agent run the following:
 ```
@@ -70,7 +70,11 @@ ln -s <output-from-command-above> /users/<cloudlab-username>/.kube/config
 ```
 example:
 ```
-ln -s /home/ec/.kube/config /users/<cloudlab-username>/.kube/config
+ln -s /home/ec/.kube/config /users/gcusack/.kube/config
 ```
 
-
+# Develop Locally
+Clone repo and submodules
+```
+git clone --recurse-submodules -j8 git@github.com:gregcusack/Escra.git
+```
