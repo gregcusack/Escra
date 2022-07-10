@@ -78,3 +78,27 @@ Clone repo and submodules
 ```
 git clone --recurse-submodules -j8 git@github.com:gregcusack/Escra.git
 ```
+
+## Installing components for control node
+See [this](https://github.com/hunhoffe/ec-cloudlab/blob/main/Documentation/gcm_install.sh) script
+and then
+See [this](https://github.com/hunhoffe/ec-cloudlab/blob/main/gcm_setup.sh) script
+
+
+## Installing components for worker node
+See [this](https://github.com/hunhoffe/ec-cloudlab/blob/main/Documentation/ecnode_install.sh) script
+and then 
+See [this](https://github.com/hunhoffe/ec-cloudlab/blob/main/node_setup.sh) script
+
+### Compile and run Controller (gcm)
+cd Escra/ec_gcm
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=/usr/bin/gcc-8 -DCMAKE_CXX_COMPILER=/usr/bin/g++-8 .
+make -j20
+
+
+# config file for ec_gcm (app_def.json)
+
+# config file for ec_deployer (app_deploy.json)
+
+# Multitenancy
+Multitenancy is not fully supported yet. Number of tenants should be set to `1` in `app_def.json`
